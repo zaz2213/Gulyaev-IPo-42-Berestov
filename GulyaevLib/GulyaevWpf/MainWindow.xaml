@@ -1,0 +1,69 @@
+﻿<Window x:Class="GulyaevWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GulyaevWpf"
+        mc:Ignorable="d"
+        Title="GulyaevWpf" Height="600" Width="900">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" MinHeight="25">
+                <MenuItem Header="Партнер">
+                    <MenuItem Header="Добавить партнера" Click="Partner_Add"/>
+                    <MenuItem Header="Редактировать партнера" Click="Partner_Edit"/>
+                    <MenuItem Header="Удалить Партнера" Click="Partner_Del"/>
+                </MenuItem>
+                <MenuItem Header="Продажи">
+                    <MenuItem Header="Добавить продажу" Click="Sales_Add"/>
+                    <MenuItem Header="Редактировать продажу" Click="Sales_Edit"/>
+                    <MenuItem Header="Удалить продажу" Click="Sales_Del"/>
+                </MenuItem>
+                <MenuItem Header="Выход" Click="Exit_click"/>
+            </Menu>
+        </DockPanel>
+        <ListBox x:Name="PartnerListBox" HorizontalAlignment="Left" Width="330" Height="552" VerticalAlignment="Top" Margin="0,27,0,0">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить партнера" Click="Partner_Add"/>
+                    <MenuItem Header="Редактировать партнера" Click="Partner_Edit"/>
+                    <MenuItem Header="Удалить Партнера" Click="Partner_Del"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="0,0,0,0" Width="319">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="{Binding PartnerTypeName}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding PartnerDirector}" />
+                                <TextBlock Text="{Binding PartnerNumber}" />
+                                <TextBlock Text="{Binding PartnerRating, StringFormat=Рейтинг: {0}}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" Text="{Binding PartnerDiscount, StringFormat={}{0}%}" VerticalAlignment="Top" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <DataGrid x:Name="ParnterGridData" Margin="330,27,0,0" HorizontalAlignment="Left" Width="564" AutoGenerateColumns="False" Height="557" VerticalAlignment="Top" SelectionMode="Single" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" IsReadOnly="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить продажу" Click="Sales_Add"/>
+                    <MenuItem Header="Редактировать продажу" Click="Sales_Edit"/>
+                    <MenuItem Header="Удалить продажу" Click="Sales_Del"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Product_name}" Width="350"/>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding SaleDate,StringFormat={}{0:dd.MM.yyyy}}" Width="*"/>
+                <DataGridTextColumn Header="Кол-во" Binding="{Binding PartnerCount}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
+

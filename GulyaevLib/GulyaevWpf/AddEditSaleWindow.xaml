@@ -1,0 +1,50 @@
+﻿<Window x:Class="GulyaevWpf.AddEditSaleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GulyaevWpf"
+        mc:Ignorable="d"
+        Title="Окно" Height="240" Width="350" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+            <Button x:Name="Add_b"
+                    Content="Добавить"
+                    Width="80"
+                    Height="24"
+                    Margin="0,0,10,0"
+                    Click="Add_b_Click"/>
+            <Button x:Name="Ex_b"
+                    Content="Отмена"
+                    Width="80"
+                    Height="24"
+                    Click="Exit_Click"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Продукт" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <ComboBox x:Name="productbox" Grid.Row="0" Grid.Column="1" Height="22" Margin="0,0,0,5"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Дата" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <DatePicker x:Name="datebox" Grid.Row="1" Grid.Column="1" Height="25" Margin="0,0,0,5" SelectedDateFormat="Short"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Кол-во" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="coubox" Grid.Row="2" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+        </Grid>
+    </DockPanel>
+</Window>
+

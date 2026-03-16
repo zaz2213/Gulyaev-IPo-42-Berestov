@@ -1,0 +1,75 @@
+﻿<Window x:Class="GulyaevWpf.AddEditPartnerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GulyaevWpf"
+        mc:Ignorable="d"
+        Title="Окно Партнера" Height="360" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+            <Button x:Name="Add_b"
+                    Content="Добавить"
+                    Width="80"
+                    Height="24"
+                    Margin="0,0,10,0"
+                    Click="Add_b_Click"/>
+            <Button x:Name="Ex_b"
+                    Content="Отмена"
+                    Width="80"
+                    Height="24"
+                    Click="Exit_Click"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Тип" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <ComboBox x:Name="typebox" Grid.Row="0" Grid.Column="1" Height="22" Margin="0,0,0,5">
+                <ComboBoxItem Content="ПАО"/>
+                <ComboBoxItem Content="ЗАО"/>
+                <ComboBoxItem Content="ООО"/>
+                <ComboBoxItem Content="ОАО"/>
+            </ComboBox>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Наименование" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="namebox" Grid.Row="1" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Директор" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="dirbox" Grid.Row="2" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Email" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="mailbox" Grid.Row="3" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Номер" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="numberbox" Grid.Row="4" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="ИНН" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="innbox" Grid.Row="5" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Content="Адрес" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="addressbox" Grid.Row="6" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+
+            <Label Grid.Row="7" Grid.Column="0" Content="Рейтинг" VerticalAlignment="Center" Margin="0,0,5,5"/>
+            <TextBox x:Name="ratingbox" Grid.Row="7" Grid.Column="1" Height="22" Margin="0,0,0,5" TextWrapping="Wrap"/>
+        </Grid>
+    </DockPanel>
+</Window>
+
